@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Input N:\n");
+    scanf("%d", &N);
+
+    int elements[N]; // อาเรย์สำหรับเก็บข้อมูล
+    int count[100] = {0}; // อาเรย์สำหรับนับจำนวน
+
+    // รับค่าจากผู้ใช้
+    for (int i = 0; i < N; i++) {
+        printf("Element[%d]:\n", i);
+        scanf("%d", &elements[i]);
+        count[elements[i]]++; // นับจำนวนครั้งที่แต่ละตัวเลขปรากฏ
+    }
+
+    // แสดงผลจำนวนที่ซ้ำกัน
+    for (int i = 0; i < 100; i++) {
+        if (count[i] > 0) {
+            printf("%d -> %d value%s.\n", i, count[i], count[i] > 1 ? "s" : ""); // แสดงผล
+        }
+    }
+
+    return 0;
+}
