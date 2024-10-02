@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    // รับจำนวนสมาชิกของอาเรย์
+    printf("Enter new element of Array:\n");
+    scanf("%d", &n);
+
+    int array[n];
+
+    // รับค่าภายในอาเรย์
+    for (int i = 0; i < n; i++) {
+        printf("Input:\n");
+        scanf("%d", &array[i]);
+    }
+
+    // แสดงผลอาเรย์
+    printf("Array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    // หาค่าที่มากเป็นอันดับสาม
+    int thirdLargest = -1; // ค่าเริ่มต้น
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (array[i] > array[j]) {
+                thirdLargest = array[i];
+            }
+        }
+    }
+
+    // แสดงผล
+    printf("The large 3rd element = %d\n", thirdLargest);
+
+    return 0;
+}
