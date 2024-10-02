@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+void sortArray(int array[], int size) {
+    // การเรียงลำดับอาเรย์จากน้อยไปมาก
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (array[i] > array[j]) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    // อาเรย์เดิม
+    int oldArray[] = {9, 2, 6, 1, 7};
+    int oldSize = sizeof(oldArray) / sizeof(oldArray[0]);
+
+    // แสดงอาเรย์เดิม
+    printf("Old Array: ");
+    for (int i = 0; i < oldSize; i++) {
+        printf("%d ", oldArray[i]);
+    }
+    printf("\n");
+
+    // รับค่าจากผู้ใช้
+    int n;
+    printf("Enter new element of Array:\n");
+    scanf("%d", &n);
+    int newArray[n];
+
+    // รับข้อมูลใหม่จากผู้ใช้
+    for (int i = 0; i < n; i++) {
+        printf("Input:\n");
+        scanf("%d", &newArray[i]);
+    }
+
+    // สร้างอาเรย์ใหม่ที่รวมอาเรย์เดิมและอาเรย์ใหม่
+    int totalSize = oldSize + n;
+    int combinedArray[totalSize];
+
+    // คัดลอกข้อมูลจาก oldArray และ newArray ไปยัง combinedArray
+    for (int i = 0; i < oldSize; i++) {
+        combinedArray[i] = oldArray[i];
+    }
+    for (int i = 0; i < n; i++) {
+        combinedArray[oldSize + i] = newArray[i];
+    }
+
+    // เรียงลำดับ combinedArray จากน้อยไปมาก
+    sortArray(combinedArray, totalSize);
+
+    // แสดงผลลัพธ์
+    printf("New Array: ");
+    for (int i = 0; i < totalSize; i++) {
+        printf("%d ", combinedArray[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
