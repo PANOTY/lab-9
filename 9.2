@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int values[100]; // อาเรย์เก็บข้อมูล
+    int count = 0; // ตัวนับจำนวนค่าที่กรอก
+
+    // รับค่าจากผู้ใช้
+    while (1) {
+        printf("Input :\n");
+        scanf("%d", &values[count]);
+
+        if (values[count] == -1) { // หยุดกรอกเมื่อกรอก -1
+            break;
+        }
+
+        count++; // เพิ่มตัวนับ
+    }
+
+    // แสดงผลจากน้อยไปมาก
+    printf("0-99 : ");
+    for (int i = 0; i < count; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (values[i] > values[j]) {
+                // สลับค่าถ้าค่าซ้ายมากกว่าขวา
+                int temp = values[i];
+                values[i] = values[j];
+                values[j] = temp;
+            }
+        }
+    }
+
+    // แสดงผลเรียงจากน้อยไปมาก
+    for (int i = 0; i < count; i++) {
+        printf("%d ", values[i]);
+    }
+    printf("\n");
+
+    // แสดงผลเรียงจากมากไปน้อย
+    printf("99-0 : ");
+    for (int i = count - 1; i >= 0; i--) {
+        printf("%d ", values[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
