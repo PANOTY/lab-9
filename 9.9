@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+
+    // รับจำนวนแถวและคอลัมน์ของอาเรย์
+    printf("Array1 element:\n");
+    scanf("%d %d", &rows, &cols);
+
+    int array1[rows][cols];
+    int array2[rows][cols];
+    int array3[rows][cols];
+
+    // รับค่าภายใน Array1
+    printf("Input for Array1:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &array1[i][j]);
+        }
+    }
+
+    // รับจำนวนแถวและคอลัมน์ของอาเรย์ที่สอง
+    printf("Array2 element:\n");
+    scanf("%d %d", &rows, &cols);
+
+    // รับค่าภายใน Array2
+    printf("Input for Array2:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &array2[i][j]);
+        }
+    }
+
+    // คำนวณผลรวมและเก็บใน Array3
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            array3[i][j] = array1[i][j] + array2[i][j];
+        }
+    }
+
+    // แสดงผลลัพธ์
+    printf("Array1 + Array2 = Array3\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", array3[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
