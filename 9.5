@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Input N:\n");
+    scanf("%d", &N);
+
+    int elements[N]; // อาเรย์สำหรับเก็บข้อมูล
+    int count[100] = {0}; // อาเรย์สำหรับนับจำนวน
+
+    // รับค่าจากผู้ใช้
+    for (int i = 0; i < N; i++) {
+        printf("Input:\n");
+        scanf("%d", &elements[i]);
+        count[elements[i]]++; // นับจำนวนครั้งที่แต่ละตัวเลขปรากฏ
+    }
+
+    // แสดงผลเฉพาะค่าที่ไม่มีการซ้ำกัน
+    printf("Unique value : ");
+    for (int i = 0; i < 100; i++) {
+        if (count[i] == 1) {
+            printf("%d ", i); // แสดงค่าที่มีจำนวนเป็น 1
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
